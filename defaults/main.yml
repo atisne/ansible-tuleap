@@ -61,3 +61,7 @@ tuleap_packages_state: present
 # Default time zone:
 timezone: Europe/Paris
 
+mysql_package: mysql-server
+mysql_service: mysqld
+mysql_bin_path: /usr/bin
+mysql_config_path: /etc

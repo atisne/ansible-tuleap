@@ -3,7 +3,7 @@
 
 - name: Install mysql server
   yum: 
-    name: rh-mysql80-mysql-server 
+    name: "{{ mysql_package }}"
     state: "{{ tuleap_packages_state }}"
   notify: restart mysql
 

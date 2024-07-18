@@ -31,5 +31,5 @@
 
 - name: restart mysql
   systemd: 
-    name: rh-mysql80-mysqld
+    name: "{{ mysql_service }}"
     state: restarted
