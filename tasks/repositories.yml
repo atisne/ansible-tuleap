@@ -1,8 +1,12 @@
 ---
 # Install Tuleap prerequisites
 
+- name: Add remirepo GPG key
+  ansible.builtin.rpm_key:
+    key: https://rpms.remirepo.net/enterprise/{{ ansible_distribution_major_version }}/RPM-GPG-KEY-remi
+
 - name: Setup dependencies repositories
-  yum: 
+  ansible.builtin.package:
     name:
       - epel-release
       - centos-release-scl
