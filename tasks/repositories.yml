@@ -1,9 +1,12 @@
 ---
 # Install Tuleap prerequisites
 
-- name: Add remirepo GPG key
+- name: Add GPG keys
   ansible.builtin.rpm_key:
-    key: https://rpms.remirepo.net/enterprise/{{ ansible_distribution_major_version }}/RPM-GPG-KEY-remi
+    key: "{{ item }}"
+  loop:
+    - "{{ remi_repo_base_url }}/enterprise/{{ ansible_distribution_major_version }}/RPM-GPG-KEY-remi"
+    - "{{ tuleap_repo_url }}/gpg.key"
 
 - name: Setup dependencies repositories
   ansible.builtin.package:
