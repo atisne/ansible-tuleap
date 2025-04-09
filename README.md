@@ -42,5 +42,5 @@ Author Information
 
 - [Tuleap](https://www.tuleap.org)
 - [Enalean](https://www.enalean.com)
-- [Community](tuleap.net)
-- [Community Chat](chat.tuleap.org)
+- [Community](https://www.tuleap.net)
+- [Community Chat](https://chat.tuleap.org)
