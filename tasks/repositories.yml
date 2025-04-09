@@ -24,3 +24,15 @@
     replace: "{{ tuleap_repo_url }}"
     backup: true
   when: tuleap_repo_url != 'https://ci.tuleap.net/yum/tuleap'
+
+- name: Add repository credentials if required
+  ansible.builtin.lineinfile:
+    path: /etc/yum.repos.d/tuleap.repo
+    line: "{{ item }}"
+    state: present
+  loop:
+    - "username={{ tuleap_repo_user }}"
+    - "password={{ tuleap_repo_password }}"
+  when: tuleap_repo_user is defined
+
+...
