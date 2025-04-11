@@ -14,7 +14,7 @@
       - epel-release
       - centos-release-scl
       - "{{ remi_repo_base_url }}/enterprise/remi-release-{{ ansible_distribution_major_version }}.rpm"
-      - "{{ tuleap_repo_url }}/rhel/7/dev/x86_64/tuleap-{{ tuleap_edition }}-release.rpm"
+      - "{{ tuleap_repo_url }}/rhel/{{ ansible_distribution_major_version }}/dev/{{ ansible_architecture }}/tuleap-{{ tuleap_edition }}-release.rpm"
     state: "{{ tuleap_packages_state }}"
 
 - name: Overload the repo source
