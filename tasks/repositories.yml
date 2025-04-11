@@ -12,7 +12,6 @@
   ansible.builtin.package:
     name:
       - epel-release
-      - centos-release-scl
       - "{{ remi_repo_base_url }}/enterprise/remi-release-{{ ansible_distribution_major_version }}.rpm"
       - "{{ tuleap_repo_url }}/rhel/{{ ansible_distribution_major_version }}/dev/{{ ansible_architecture }}/tuleap-{{ tuleap_edition }}-release.rpm"
     state: "{{ tuleap_packages_state }}"
