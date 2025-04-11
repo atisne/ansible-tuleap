@@ -13,7 +13,7 @@
     name:
       - epel-release
       - "{{ remi_repo_base_url }}/enterprise/remi-release-{{ ansible_distribution_major_version }}.rpm"
-      - "{{ tuleap_repo_url }}/rhel/{{ ansible_distribution_major_version }}/dev/{{ ansible_architecture }}/tuleap-{{ tuleap_edition }}-release.rpm"
+      - "{{ tuleap_repo_url if tuleap_repo_user is not defined else tuleap_repo_url | replace('https://', 'https://' + tuleap_repo_user | urlencode | replace('/', '%2f') + ':' + tuleap_repo_password | urlencode | replace('/', '%2f') + '@') }}/rhel/{{ ansible_distribution_major_version }}/dev/{{ ansible_architecture }}/tuleap-{{ tuleap_edition }}-release.rpm"
     state: "{{ tuleap_packages_state }}"
 
 - name: Overload the repo source
