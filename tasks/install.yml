@@ -1,7 +1,9 @@
 ---
 
-- include: install-mysql-server.yml
+- ansible.builtin.include_tasks: install-mysql-server.yml
   when: tuleap_conf_file.stat.exists == False
 
-- include: install-tuleap_setup.yml
+- ansible.builtin.include_tasks: install-tuleap_setup.yml
   when: tuleap_conf_file.stat.exists == False
+
+...
