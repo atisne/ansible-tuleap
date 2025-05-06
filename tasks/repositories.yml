@@ -27,12 +27,15 @@
 - name: Add repository credentials if required
   ansible.builtin.lineinfile:
     path: /etc/yum.repos.d/tuleap.repo
-    line: "{{ item }}"
+    regexp: '^\s*{{ item.key }}\s*='
+    line: "{{ item.key }} = {{ item.value }}"
     state: present
     mode: "o-rw"
-  loop:
-    - "username={{ tuleap_repo_user }}"
-    - "password={{ tuleap_repo_password }}"
+  vars:
+    creds:
+      username: "{{ tuleap_repo_user }}"
+      password: "{{ tuleap_repo_password }}"
+  loop: "{{ creds | dict2items }}"
   when: tuleap_repo_user is defined
 
 ...
