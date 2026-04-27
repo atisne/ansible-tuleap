@@ -37,5 +37,6 @@
       password: "{{ tuleap_repo_password }}"
   loop: "{{ creds | dict2items }}"
   when: tuleap_repo_user is defined
+  tags: tuleap_repo_creds
 
 ...

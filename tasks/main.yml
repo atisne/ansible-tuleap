@@ -11,6 +11,7 @@
 
 - ansible.builtin.include_tasks: selinux.yml
 - ansible.builtin.include_tasks: repositories.yml
+  tags: tuleap_repo_creds
 - ansible.builtin.include_tasks: tuleap_packages.yml
 - ansible.builtin.include_tasks: mail-server.yml
 
